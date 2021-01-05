@@ -182,4 +182,34 @@
 
 			});
 
+			/* Pic MODAL */
+
+			// $('.tiles > a').forEach(aElem => {
+			// 	aElem.on('click', openInModal)
+			// });
+			
+			// Get the modal
+			function openInModal(e){
+				var $modal = $("#picModal");
+				// Get the image and insert it inside the modal - use its "alt" text as a caption
+				//var $img = $('.tileimg img');
+				var $img = $(this).find('span img');
+				var $modalContImg = $(".modal-content");
+				var $captionText = $("#modalcaption");
+				//display modal
+				//$modal.css('display', 'block');
+				$modal.toggle();
+				var imgsrc = $img.attr('src');
+				$modalContImg.attr('src', imgsrc);
+				var imgalt = $img.attr('alt');
+				$captionText.html(imgalt);
+				
+				// Get the <span> element that closes the modal
+				//var $span = $(".modalclose");
+				// When the user clicks on <span> (x), close the modal
+				// $span.on('click', function() { 
+				// 	$modal.css('display',"none");
+				// });
+			}
+			$('.tiles article').on('click', openInModal);
 })(jQuery);
